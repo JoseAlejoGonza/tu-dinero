@@ -36,7 +36,7 @@
                 <button>
                     <img src="./img/left_button.png" alt="left button">
                 </button>
-                <button>
+                <button onclick="window.location='#slideTransfer'" return false>
                     <img src="./img/right_button.png" alt="right button">
                 </button>
             </div>
@@ -97,18 +97,6 @@
 
         </div>
     </body>
-    <script>
-        let input = document.querySelector(".enabled-input");
-        let button = document.querySelector(".enable-button");
-        button.disabled = true;
-        input.addEventListener("change", stateHandle);
-        function stateHandle() {
-        if (document.querySelector(".enabled-input").value === " ") {
-            button.disabled = true; 
-        } else {
-            button.disabled = false;
-        }
-        }
-    </script>
+    <script src="tu-dinero.js"></script>
 
 </html>
