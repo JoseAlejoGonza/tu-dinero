@@ -45,14 +45,70 @@
                 <p class="login-text">Iniciar Sesión</p>
                 <p class="description-text">Ingresa tus credenciales para acceder a la plataforma</p>
                 <form>
-                    <input type="text" placeholder="Ingresa tu usuario" required>
-                    <input type="text" placeholder="Ingresa tu contraseña" required>
+                    <input class="enabled-input" type="text" placeholder="Ingresa tu usuario" required>
+                    <input class="enabled-input" type="text" placeholder="Ingresa tu contraseña" required>
                     <a href="#popup-recovery" class="password-recovery">¿Olvidaste tu contraseña?</a>
-                    <button type="submit">Ingresa ahora</button>
+                    <img class="captcha" src="./img/captcha.png" alt="captchca">
+                    <button class="enable-button" type="submit">Ingresa ahora</button>
                 </form>
+            </div>
+            <div class="popup" id="popup-recovery">
+                <div class="popup-inner">
+                    <div class="popup-img">
+                        <img src="./img/background_popup.png" alt="background popup">
+                    </div>
+                    <div class="popup-text">
+                        <h6>¿Estás seguro que deseas recuperar tu contraseña?</h6>
+                        <button onclick="window.location='#popup-recovery1'" return false class="backgroun-button-active" type="submit">Recuperar contraseña</button>
+                        <button onclick="window.location='#'" return false class="backgroun-button" type="submit">Cancelar</button>
+                    </div>
+                    <a class="popup-close" href="#">X</a>
+                </div>
+            </div>
+            <div class="popup" id="popup-recovery1">
+                <div class="popup-inner">
+                    <div class="popup-img">
+                        <img src="./img/background_popup.png" alt="background popup">
+                    </div>
+                    <div class="popup-text">
+                        <h6>Por favor ingresa tu correo electrónico</h6>
+                        <form>
+                            <input class="enabled-input" type="email" placeholder="Ingresa tu correo" required>
+                            <button class="enable-button" onclick="window.location='#popup-recovery2'" return false type="submit">Enviar correo</button>
+                        </form>
+                        
+                    </div>
+                    <a class="popup-close" href="#">X</a>
+                </div>
+            </div>
+            <div class="popup" id="popup-recovery2">
+                <div class="popup-inner">
+                    <div class="popup-img">
+                        <img src="./img/background_popup.png" alt="background popup">
+                    </div>
+                    <div class="popup-text">
+                        <h6>¡Correo enviado!</h6>
+                        <p>Hemos enviado un correo, si no lo encuentras en la bandeja de entrada, por favor revisa en spam.</p>
+                        <button onclick="window.location='#'" return false class="backgroun-button-active" type="submit">Aceptar</button>
+                    </div>
+                    <a class="popup-close" href="#">X</a>
+                </div>
             </div>
 
         </div>
     </body>
+    <script>
+        let input = document.querySelector(".enabled-input");
+        let button = document.querySelector(".enable-button");
+        button.disabled = true;
+        input.addEventListener("change", stateHandle);
+        function stateHandle() {
+        if (document.querySelector(".enabled-input").value === " ") {
+            button.disabled = true; 
+        } else {
+            button.disabled = false;
+        }
+        }
+    </script>
 
 </html>
